@@ -1,13 +1,15 @@
 import { setupEventDelegation } from '../main'
 
 describe('setupEventDelegation', () => {
-  document.body.innerHTML = `
-    <ul id="testList">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-    `
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <ul id="testList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+      `
+  })
 
   test('should log the text of the clicked list item', () => {
     const mockConsoleLog = vi.spyOn(console, 'log').mockImplementation(() => {})
